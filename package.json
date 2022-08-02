@@ -19,7 +19,8 @@
     "release": "standard-version",
     "release-major": "standard-version --release-as major",
     "release-minor": "standard-version --release-as minor",
-    "release-patch": "standard-version --release-as patch"
+    "release-patch": "standard-version --release-as patch",
+    "todo": "rimraf dist && cross-env NODE_ENV=production webpack --config ./scripts/webpack.prod.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -74,6 +75,7 @@
     "rimraf": "^3.0.2",
     "standard-version": "^9.5.0",
     "terser-webpack-plugin": "^5.3.3",
+    "ts-jest": "^28.0.7",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4",
     "vue": "^3.2.37",

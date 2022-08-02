@@ -2,11 +2,19 @@
  * @type {import('@jest/types').Config.InitialOptions}
  */
 module.exports = {
-  // test js/jsx/ts/tsx
+  preset: 'ts-jest',
   testRegex: '\\.test\\.(js|jsx|ts|tsx)$',
   testEnvironment: 'node',
   collectCoverage: true,
-  collectCoverageFrom: ['src/*.ts', 'src/*.js'],
+  collectCoverageFrom: ['src/**/*.ts'],
+  moduleNameMapper: {
+    '^@core/(.*)$': '<rootDir>/src/core/$1',
+    '^@web/(.*)$': '<rootDir>/src/web/$1'
+  },
+  modulePathIgnorePatterns: ['dist', 'node_modules'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx']
+
+  // TODO
   // coverageThreshold: {
   //   global: {
   //     branches: 100,
@@ -15,10 +23,4 @@ module.exports = {
   //     statements: 100
   //   }
   // },
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '^@test/(.*)$': '<rootDir>/test/$1'
-  },
-  modulePathIgnorePatterns: ['dist', 'node_modules'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx']
 }
