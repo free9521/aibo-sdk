@@ -1,6 +1,3 @@
-/**
- * @see {@link https://jestjs.io/docs/getting-started#using-typescript}
- */
 module.exports = {
   presets: [
     [

@@ -18,9 +18,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, '../src'),
-      '@docs': resolve(__dirname, '../docs'),
-      '@test': resolve(__dirname, '../test')
+      '@core': resolve(__dirname, '../src/core'),
+      '@web': resolve(__dirname, '../src/web'),
+      '@typings': resolve(__dirname, '../typings')
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
@@ -28,19 +28,5 @@ module.exports = {
     new WebpackBar({
       name: '正在打包中'
     })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(ts)$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ]
-  }
+  ]
 }

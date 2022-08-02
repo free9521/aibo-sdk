@@ -8,7 +8,10 @@ const { resolve, PROJECT_PATH } = require('./constants')
 /**
  * @type {import('webpack').Configuration}
  */
-module.exports = merge(common, {
+const developmentConfig = {
+  entry: {
+    index: resolve(PROJECT_PATH, './test/web/init.ts') // 用于挂载SDK
+  },
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
@@ -27,8 +30,25 @@ module.exports = merge(common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(PROJECT_PATH, './test/index.html'),
-      scriptLoading: 'blocking'
+      template: resolve(PROJECT_PATH, './test/web/index.html'),
+      scriptLoading: 'blocking',
+      inject: 'head'
     })
-  ]
-})
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(ts)$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  }
+}
+
+module.exports = merge(common, developmentConfig)
