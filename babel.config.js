@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     [
       '@babel/preset-env',
-      { targets: { browsers: ['last 2 versions', 'not ie < 11'] }, modules: false, node: true }
+      { targets: { browsers: ['last 2 versions', 'not ie < 11'] }, modules: false }
     ],
     '@babel/preset-typescript'
   ],

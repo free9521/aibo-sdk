@@ -22,6 +22,11 @@
     "release-patch": "standard-version --release-as patch",
     "todo": "rimraf dist && cross-env NODE_ENV=production webpack --config ./scripts/webpack.prod.js"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint"
