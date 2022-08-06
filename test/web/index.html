@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vanila js</title>
 
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- TODO -->
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <img
-        class="w-full"
-        src="https://v1.tailwindcss.com/img/card-top.jpg"
-        alt="Sunset in the mountains"
-      />
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-          Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-      <div class="px-6 pt-4 pb-2">
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-          >#photography</span
-        >
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-          >#travel</span
-        >
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-          >#winter</span
-        >
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vanila js</title>
+
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- TODO -->
+  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <img class="w-full" src="https://v1.tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+      <p class="text-gray-700 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
+        Maiores et perferendis eaque, exercitationem praesentium nihil.
+      </p>
     </div>
-  </body>
+    <div class="px-6 pt-4 pb-2">
+      <span
+        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+      <span
+        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+      <span
+        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+    </div>
+  </div>
+  <!-- 添加测试按钮 -->
+  <div class="test">
+    <button id="jsError">点击抛出一个js错误</button>
+    <br />
+    <button id="promiseError">点击抛出一个promise错误</button>
+    <br />
+    <button id="resourceError">点击抛出一个resource错误</button>
+  </div>
+
+  <script>
+    let testDiv = document.querySelector('.test');
+    let jsError = document.querySelector('#jsError');
+    let promiseError = document.querySelector('#promiseError');
+    let resourceError = document.querySelector('#resourceError');
+
+    jsError.onclick = function () {
+      window.someVal.a = 'val';
+    }
+    promiseError.onclick = function () {
+      new Promise((res, rej) => {
+        rej('出错了');
+      })
+    }
+    resourceError.onclick = function () {
+      let img = document.createElement('img');
+      img.src = './img';
+      testDiv.appendChild(img);
+    }
+  </script>
+</body>
+
 </html>
