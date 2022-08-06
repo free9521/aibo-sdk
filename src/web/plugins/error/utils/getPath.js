@@ -1,4 +1,4 @@
-export function getPath(path) {
+function getPath(path) {
   const result = [];
   for (const p of path) {
     let temp = p.tagName;
@@ -21,3 +21,5 @@ export function getPath(path) {
   }
   return result.join('  ');
 }
+
+export { getPath }

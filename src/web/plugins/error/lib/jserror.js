@@ -1,7 +1,7 @@
 import { getPath } from '../utils/getPath';
 import { getStack } from '../utils/getStack';
 
-export function captureJsError() {
+function captureJsError() {
   // 捕获js执行错误和静态资源加载错误
   window.addEventListener('error', (e) => {
     // 阻止默认事件，不让控制台报错
@@ -46,3 +46,5 @@ export function captureJsError() {
     console.log(log);
   })
 }
+
+export { captureJsError }
