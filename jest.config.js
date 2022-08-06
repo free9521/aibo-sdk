@@ -4,7 +4,7 @@
 module.exports = {
   preset: 'ts-jest',
   testRegex: '\\.test\\.(js|jsx|ts|tsx)$',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts'],
   moduleNameMapper: {
