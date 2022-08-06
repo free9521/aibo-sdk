@@ -3,8 +3,8 @@
 import { WebSDK } from '@web/core/WebSDK'
 import { captureJsError } from './lib/jserror'
 
+captureJsError();
 function errorPlugin(sdk: WebSDK) {
-  captureJsError();
   console.log(sdk.version, 'errorPlugin')
 }
 

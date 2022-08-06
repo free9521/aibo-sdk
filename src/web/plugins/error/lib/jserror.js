@@ -1,5 +1,5 @@
-import { getPath } from '../utils/getPath';
-import { getStack } from '../utils/getStack';
+import { getPath } from '@web/plugins/error/utils/getPath';
+import { getStack } from '@web/plugins/error/utils/getStack';
 
 function captureJsError() {
   // 捕获js执行错误和静态资源加载错误
