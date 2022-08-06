@@ -9,7 +9,8 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.ts'],
   moduleNameMapper: {
     '^@core/(.*)$': '<rootDir>/src/core/$1',
-    '^@web/(.*)$': '<rootDir>/src/web/$1'
+    '^@web/(.*)$': '<rootDir>/src/web/$1',
+    'some-esm/esm/(.*)': '<rootDir>/node_modules/some-esm/cjs/$1'
   },
   modulePathIgnorePatterns: ['dist', 'node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx']
