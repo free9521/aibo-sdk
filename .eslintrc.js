@@ -28,6 +28,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'function-paren-newline': 0,
     'arrow-parens': 0,
-    'no-restricted-syntax': 0
+    'no-restricted-syntax': 0,
+    '@typescript-eslint/ban-ts-comment': 0, // 允许ts不检查语法
   }
 }

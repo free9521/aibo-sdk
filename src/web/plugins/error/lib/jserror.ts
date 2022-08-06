@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getPath } from '@web/plugins/error/utils/getPath';
 import { getStack } from '@web/plugins/error/utils/getStack';
 

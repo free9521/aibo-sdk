@@ -1,3 +1,4 @@
+// @ts-nocheck
 function getPath(path) {
   const result = [];
   for (const p of path) {
