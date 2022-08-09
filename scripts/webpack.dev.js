@@ -26,6 +26,24 @@ const developmentConfig = {
         changeOrigin: true,
         secure: false
       }
+    },
+    // 配置路由
+    setupMiddlewares: function (middlewares, devServer) {
+      middlewares.unshift({
+        name: 'user-info',
+        path: '/success',
+        middleware: (req, res) => {
+          res.json({ name: 'mock' });
+        }
+      });
+      middlewares.unshift({
+        name: 'user-info',
+        path: '/error',
+        middleware: (req, res) => {
+          res.sendStatus(500);
+        }
+      });
+      return middlewares;
     }
   },
   plugins: [

@@ -30,5 +30,7 @@ module.exports = {
     'arrow-parens': 0,
     'no-restricted-syntax': 0,
     '@typescript-eslint/ban-ts-comment': 0, // 允许ts不检查语法
+    'no-plusplus': 0, // 允许++
+    'no-mixed-operators': 0,
   }
 }

@@ -37,6 +37,13 @@
     <button id="promiseError">点击抛出一个promise错误</button>
     <br />
     <button id="resourceError">点击抛出一个resource错误</button>
+
+    <br />
+    <input id="xhrSuccess" type="button" value="发送success请求">
+    <input id="xhrError" type="button" value="发送error请求">
+
+    <br />
+    <div id="app"></div>
   </div>
 
   <script>
@@ -58,6 +65,37 @@
       img.src = './img';
       testDiv.appendChild(img);
     }
+
+    // input 框
+    let xhrSuccess = document.querySelector('#xhrSuccess');
+    let xhrError = document.querySelector('#xhrError');
+    let abort = document.querySelector('#abort');
+
+    xhrSuccess.onclick = function () {
+      // console.log('success');
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', '/success', true);
+      xhr.responseType = 'json';
+      xhr.onload = function () {
+        console.log(xhr.response);
+      }
+      xhr.send(null);
+    }
+    xhrError.onclick = function () {
+      // console.log('error');
+      let xhr = new XMLHttpRequest();
+      xhr.open('POST', '/error', true);
+      xhr.responseType = 'json';
+      xhr.onload = function () {
+        console.log('response' + xhr.response);
+      }
+      xhr.onerror = function (error) {
+        console.log('error' + error);
+      }
+      xhr.send("name=free");
+      // xhr.abort();
+    }
+
   </script>
 </body>
 
