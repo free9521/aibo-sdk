@@ -32,5 +32,6 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 0, // 允许ts不检查语法
     'no-plusplus': 0, // 允许++
     'no-mixed-operators': 0,
+    'no-param-reassign': 0, // 允许修改函数参数(Vue里用)
   }
 }
