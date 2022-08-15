@@ -1,6 +1,5 @@
 // @ts-nocheck
 // 监控白屏异常
-
 // 判断是否为空白点
 function isWrapper(ele) {
   const e = ele.nodeName.toLowerCase();
@@ -23,12 +22,13 @@ export function captureBlankError() {
     const yElements = document.elementsFromPoint(
       window.innerWidth / 2, window.innerHeight * i / 10);
 
-    // console.log(xElements);
+    // console.log(yElements);
+
     // 判断最里面的元素是否为页面渲染的元素
     if (isWrapper(xElements[0])) blankPoint++;
     if (isWrapper(yElements[0])) blankPoint++;
   }
-  if (blankPoint === 18) {
+  if (blankPoint >= 0) {
     const log = {
       kind: 'stability',
       type: 'blankScreenError',

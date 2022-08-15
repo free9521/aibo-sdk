@@ -6,7 +6,7 @@ module.exports = {
   testRegex: '\\.test\\.(js|jsx|ts|tsx)$',
   testEnvironment: 'jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['src/**/*.ts', 'src/web/plugins/error/lib/blankError.ts'],
   moduleNameMapper: {
     '^@core/(.*)$': '<rootDir>/src/core/$1',
     '^@web/(.*)$': '<rootDir>/src/web/$1',

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const common = require('./webpack.common.js')
 const { resolve, PROJECT_PATH } = require('./constants')
+const { VueLoaderPlugin } = require('vue-loader');
 
 /**
  * @type {import('webpack').Configuration}
@@ -51,7 +52,8 @@ const developmentConfig = {
       template: resolve(PROJECT_PATH, './test/web/index.html'),
       scriptLoading: 'blocking',
       inject: 'head'
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -64,6 +66,17 @@ const developmentConfig = {
         test: /\.(ts)$/,
         loader: 'ts-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
       }
     ]
   }

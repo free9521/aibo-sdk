@@ -48,6 +48,6 @@ export function captureXHRError() {
       this.addEventListener('error', handler('error'), false);
       this.addEventListener('abort', handler('abort'), false);
     }
-    return oldSend.apply(this, body);
+    return oldSend.apply(this, [body]);
   }
 }

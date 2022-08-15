@@ -9,6 +9,7 @@ function createSDKWrapper() {
   let instance: WebSDK | null = null
 
   return (config: WebSDKConfig) => {
+    // console.log(config);
     if (instance === null) {
       const newConfig = { ...WEBSDK_DEFAULT_CONFIG, ...config }
       instance = new WebSDK(newConfig)
